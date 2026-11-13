@@ -7,7 +7,8 @@ Guided hands-on exercises for the Java learning path on
 
 [Learning notes](learning-notes/README.md) contain concept chapters, runnable
 Java examples, exercise reviews, and revision material. Follow the
-[study order](learning-notes/learning-plan.md), check
+[roadmap](learning-notes/learning-plan.md) and the
+[exercise protocol](learning-notes/protocol.md), check
 [progress](learning-notes/progress.md), or use the
 [quick reference](learning-notes/revision/quick-reference.md).
 

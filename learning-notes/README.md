@@ -5,11 +5,15 @@ Use it to understand an API before attempting an exercise, then return for revis
 
 ## Start here
 
-1. Check [progress and the next step](progress.md).
-2. Follow the [learning plan](learning-plan.md).
-3. Read the relevant concept chapter, run its example, and predict the result.
-4. Attempt the linked Java exercise yourself and request a review.
-5. Use the [quick reference](revision/quick-reference.md) and [self-check](revision/self-check.md) for recall.
+1. Check [progress](progress.md) for the next step and open questions.
+2. Find your place in the [roadmap](learning-plan.md).
+3. Follow the [exercise protocol](protocol.md): read the chapter, predict,
+   attempt, go through the
+   [checklist](revision/mistake-patterns.md#checklist-before-asking-for-a-review),
+   then request a review.
+4. Revise with the [quick reference](revision/quick-reference.md),
+   [self-check](revision/self-check.md), and
+   [mistake patterns](revision/mistake-patterns.md).
 
 Each complete example program includes imports and expected output. Other
 code fences show signatures or fragments with their required context. Alternative
@@ -86,9 +90,12 @@ These are dated checkpoints, not live grades of later source edits. The
   syntax, examples, execution walkthroughs, common confusions, and practice links.
 - `exercise-reviews/`: one file per exercise; append checkpoints and link to
   the explanation instead of repeating whole lessons.
-- `revision/`: condensed lookup tables and questions with revealable answers.
+- `revision/`: condensed lookup tables, questions with revealable answers,
+  and recurring mistake patterns.
 - `setup/`: repository and environment information.
-- `learning-plan.md`: curriculum. `progress.md`: latest checkpoint and next step.
+- `protocol.md`: the routine for every exercise. `learning-plan.md`: the
+  goal and roadmap. `progress.md`: latest checkpoint, next step, and open
+  questions.
 
 Use descriptive filenames and keep reading order in the learning plan.
 Distinguish verified output from confidence explaining the concept. Add new

@@ -1,65 +1,37 @@
 # Progress and next step
 
-[Home](README.md) · [Study order](learning-plan.md)
+[Home](README.md) · [Roadmap](learning-plan.md) · [Protocol](protocol.md)
 
-Latest recorded checkpoint: 2026-11-11. This file records verified reviews,
-not an automatic live assessment of edits made afterward. Detailed findings
-and earlier checkpoints belong in the linked exercise reviews.
+Latest recorded checkpoint: 2026-11-11 (MinMax TODO 4 follow-up). This file
+records verified reviews, not live checks of edits made afterward. Detailed
+findings and earlier checkpoints are in the linked exercise reviews.
 
-## Immediate next step
+## Next step
 
-MinMax passes all six TODOs. On 2026-11-11 the revised source ran with
-all six lines unchanged: 3, 91, Hi, Diana 22, 91, and -1. TODO 4 now keeps
-the Optional and checks it before use. A scratch variant with an empty
-people list was also run: TODO 4 printed nothing and did not throw, so the
-earlier NullPointerException finding is resolved.
+1. **Loose ends quick round.** Recheck the five open items listed under
+   [loose ends](learning-plan.md#loose-ends) in the roadmap. Some may
+   already be fixed; the current code is checked before anything is
+   assigned.
+2. **Then [LazyStreams](../src/main/java/com/amigoscode/_7_streams/_11_understanding/LazyStreams.java)**
+   (Stage 3, #1), full routine. The brief introduces `peek` and
+   short-circuiting before the attempt.
 
-Next understanding checkpoint: explain in words what the original
-`orElse(null)` version did with an empty people list, when `orElseThrow`
-would fit better than skipping, and why `min` returns an Optional of
-Person rather than an int age. The code shows the skip-when-absent policy;
-the learner's explanation has not yet been checked.
+## Open questions
 
-The earlier LazyStreams lesson was proposed but has not started. The
-learner proceeded with MinMax; review this checkpoint before setting a new
-exercise assignment.
+These explain-it-back questions haven't been answered yet. One or two come
+back as a warm-up at the start of each session (see
+[protocol step 0](protocol.md#0-start-of-each-session-assistant)). A sentence
+or two is enough. An answered question moves into its exercise's review.
 
-IntStreamIterate's earlier checkpoint passes all five TODOs, including
-the inclusive sum of 500000500000. That source was not rerun in the MinMax
-review.
-
-For revision, revisit Fibonacci state pairs and limit placement. Both
-placements were checked and produce the same ten values; explaining why
-the one-to-one projection permits the move while filtering can change
-which elements are counted remains an understanding checkpoint.
-
-The earlier confusion about reusing streams is corrected in the code;
-explaining separate factory calls versus a consumed stream instance remains
-a useful understanding checkpoint.
-
-The two reduction overloads remain a revision checkpoint: predict their
-return types and values for empty and singleton inputs. The learner
-reported that omitting the identity was unfamiliar; a correct submission
-does not by itself verify that explanation.
-
-The earlier ForEachAndCollect class-name print, Function naming correction,
-and remaining BiFunction TODOs 4–5 remain recorded below at their last
-reviewed states; they were not rechecked during this review.
-
-- [MinMax review](exercise-reviews/streams/min-max.md)
-- [Minimum and maximum](explanations/streams/min-max.md)
-- [MinMax.java](../src/main/java/com/amigoscode/_7_streams/_3_minmax/MinMax.java)
-- [ReduceBasics review](exercise-reviews/streams/reduce-basics.md)
-- [Reduction refresher](explanations/streams/reduction.md)
-- [Optional](explanations/foundations/optional.md)
-- [IntStream](explanations/streams/intstream.md)
-- [IntStreamBasics review](exercise-reviews/streams/intstream-basics.md)
-- [IntStreamBasics.java](../src/main/java/com/amigoscode/_7_streams/_2_intstreams/IntStreamBasics.java)
-- [Generating sequences with iterate](explanations/streams/iteration.md)
-- [IntStreamIterate review](exercise-reviews/streams/intstream-iterate.md)
-- [IntStreamIterate.java](../src/main/java/com/amigoscode/_7_streams/_2_intstreams/IntStreamIterate.java)
-- [LazyStreams.java](../src/main/java/com/amigoscode/_7_streams/_11_understanding/LazyStreams.java)
-- [ReduceBasics.java](../src/main/java/com/amigoscode/_7_streams/_1_basics/ReduceBasics.java)
+| Asked | Exercise | Question |
+|---|---|---|
+| 2026-11-11 | [MinMax](exercise-reviews/streams/min-max.md) | With an empty people list, what did the old `orElse(null)` version do, and what does the current version do? |
+| 2026-11-11 | [MinMax](exercise-reviews/streams/min-max.md) | When would `orElseThrow` be a better choice than skipping? |
+| 2026-11-11 | [MinMax](exercise-reviews/streams/min-max.md) | `comparingInt(Person::age)` compares ages. Why does `min` return an `Optional<Person>` and not an `int`? |
+| 2026-10-31 | [IntStreamIterate](exercise-reviews/streams/intstream-iterate.md) | In the Fibonacci pipeline, why can `limit` go before or after `mapToInt`, when moving it across a `filter` can change the result? |
+| 2026-10-31 | [IntStreamIterate](exercise-reviews/streams/intstream-iterate.md) | Which endpoints do `range(1, n)` and `rangeClosed(1, n)` include? |
+| 2026-10-27 | [IntStreamBasics](exercise-reviews/streams/intstream-basics.md) | Why do two `IntStream.of(...)` calls work, when two terminal calls on the same stream variable fail? |
+| 2026-10-27 | [ReduceBasics](exercise-reviews/streams/reduce-basics.md) | What do `reduce(0, Integer::sum)` and `reduce(Integer::sum)` return for an empty stream, and for a stream containing only `7`? |
 
 ## Exercise status
 
@@ -82,15 +54,17 @@ reviewed states; they were not rechecked during this review.
 | [IntStreamIterate](exercise-reviews/streams/intstream-iterate.md) | All five correct after the inclusive endpoint correction; 35 deterministic lines and five formatted random lines verified on 2026-10-31 | Explain Fibonacci state pairs, limit placement, inclusive/exclusive endpoints, and supplier-based generation |
 | [MinMax](exercise-reviews/streams/min-max.md) | All six correct; all six output lines re-verified on 2026-11-11; TODO 4 now skips safely when people is empty (checked with a scratch variant) | Explain comparison keys versus selected elements, ties, no-identity reduction, and Optional fallback policies |
 
-The understanding column gives questions to answer. It does not claim
-mastery from a successful run. The user reported incomplete clarity on the
-core interfaces, so the current study phase addresses that directly.
+The understanding column lists broader revision topics for each exercise.
+A successful run doesn't show mastery; only an explanation does. Specific
+pending questions are under [open questions](#open-questions).
 
 ## How to update this record
 
-After a review, update the code status with what was actually checked.
-Record limitations such as an uninvoked function, failed compilation, or
-unverified later edits. Update understanding from the learner's explanation
-and self-report. Keep one next step here so old reviews do not become
-conflicting current assignments.
+Follow the [protocol](protocol.md). After a review:
 
+- update the code status with what was actually checked, using the
+  protocol's evidence terms;
+- add new explain-it-back questions to open questions, and remove answered
+  ones;
+- keep exactly one next step here, so old reviews don't turn into
+  conflicting assignments.
