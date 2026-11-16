@@ -2,16 +2,34 @@
 
 [Home](README.md) · [Roadmap](learning-plan.md) · [Protocol](protocol.md)
 
-Latest recorded checkpoint: 2026-11-11 (MinMax TODO 4 follow-up). This file
+Latest recorded checkpoint: 2026-11-12 (loose-ends recheck). This file
 records verified reviews, not live checks of edits made afterward. Detailed
 findings and earlier checkpoints are in the linked exercise reviews.
 
 ## Next step
 
-1. **Loose ends quick round.** Recheck the five open items listed under
-   [loose ends](learning-plan.md#loose-ends) in the roadmap. Some may
-   already be fixed; the current code is checked before anything is
-   assigned.
+1. **Loose ends quick round.** Rechecked on 2026-11-12: LambdaExpressions
+   is fixed. Four are still open and assigned: FunctionalInterfaceBasics
+   TODO 6, FunctionExercise TODO 5, BiFunctionExercise TODOs 4–5, and
+   ForEachAndCollect TODO 6. See [loose ends](learning-plan.md#loose-ends).
+
+   Brief given on 2026-11-12:
+   - FunctionalInterfaceBasics 6, Function 5, and ForEachAndCollect 6:
+     reread the TODO line. Optional reading:
+     [number-to-word alternatives](explanations/functional-interfaces/function.md#alternatives-for-a-fixed-number-to-word-mapping),
+     answering the learner's comment in the source, and the
+     [terminal operations example](explanations/streams/terminal-operations-and-collection.md#a-complete-example).
+   - BiFunction TODO 4: read
+     [andThen](explanations/functional-interfaces/bifunction.md#andthen-builds-behavior-before-apply-runs-it).
+   - BiFunction TODO 5: read the
+     [index-range pairing](explanations/streams/intstream.md#index-ranges-combine-two-lists-position-by-position)
+     section, which was added for this TODO.
+   - Write `// predict:` comments, go through the
+     [checklist](revision/mistake-patterns.md#checklist-before-asking-for-a-review),
+     then ask for a review.
+
+   The warm-up question asked on 2026-11-12 was the IntStreamBasics one in
+   open questions. It hasn't been answered yet.
 2. **Then [LazyStreams](../src/main/java/com/amigoscode/_7_streams/_11_understanding/LazyStreams.java)**
    (Stage 3, #1), full routine. The brief introduces `peek` and
    short-circuiting before the attempt.
@@ -38,7 +56,7 @@ or two is enough. An answered question moves into its exercise's review.
 | Exercise | Last verified code status | Understanding checkpoint |
 |---|---|---|
 | [FunctionalInterfaceBasics](exercise-reviews/functional-interfaces/functional-interface-basics.md) | TODOs 1–5 correct; TODO 6 greeting-text mismatch at its last review | Explain contract → implementation → invocation |
-| [LambdaExpressions](exercise-reviews/functional-interfaces/lambda-expressions.md) | Lambda behavior correct; last recorded issue was capitalization in the Callable result | Explain returning versus printing and zero-input lambdas |
+| [LambdaExpressions](exercise-reviews/functional-interfaces/lambda-expressions.md) | All seven correct; capitalization fix verified on 2026-11-12 (all eight output lines) | Explain returning versus printing and zero-input lambdas |
 | [MethodReferences](exercise-reviews/functional-interfaces/method-references.md) | All six correct; output verified after fixing the name conflict | Translate each reference into a lambda |
 | [Supplier](exercise-reviews/functional-interfaces/supplier.md) | All six correct after adding the first invocation and print | Explain timing, repeated calls, and fresh versus shared results |
 | [Consumer](exercise-reviews/functional-interfaces/consumer.md) | All seven correct after adding the map print; output and entries verified | Explain actions, `accept`, and same-input chaining |

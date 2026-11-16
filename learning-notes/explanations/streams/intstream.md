@@ -88,6 +88,87 @@ for `filter` and `IntConsumer` for `forEach`. Their parameters are primitive
 ints. Lambdas often look the same because Java infers those parameter types.
 A `Predicate<Integer>` object is a different interface from `IntPredicate`.
 
+## Index ranges: combine two lists position by position
+
+**Purpose:** pair element `i` of one list with element `i` of another.
+Java streams have no built-in `zip`, so the standard approach streams the
+*indices* rather than the elements.
+
+**Contract:** `IntStream.range(0, list.size())` produces the valid indices
+`0` to `size - 1`, because the end is exclusive. `mapToObj(i -> ...)` turns
+each index into an object, which switches from `IntStream` to `Stream<R>`.
+
+**Loop versus stream.** This is the loop you already know:
+
+```java
+List<String> result = new ArrayList<>();
+for (int i = 0; i < cities.size(); i++) {
+    result.add(label.apply(cities.get(i), temperatures.get(i)));
+}
+```
+
+The stream version does the same thing. The `for` header becomes `range`,
+and the body becomes the `mapToObj` lambda:
+
+```java
+List<String> result = IntStream.range(0, cities.size())
+        .mapToObj(i -> label.apply(cities.get(i), temperatures.get(i)))
+        .toList();
+```
+
+A complete example:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.stream.IntStream;
+
+public class IndexPairing {
+    public static void main(String[] args) {
+        List<String> cities = List.of("Paris", "Oslo", "Cairo");
+        List<Integer> temperatures = List.of(18, 4, 31);
+        BiFunction<String, Integer, String> label = (city, temp) -> city + ": " + temp;
+
+        List<String> viaLoop = new ArrayList<>();
+        for (int i = 0; i < cities.size(); i++) {
+            viaLoop.add(label.apply(cities.get(i), temperatures.get(i)));
+        }
+        System.out.println(viaLoop);
+
+        List<String> viaStream = IntStream.range(0, cities.size())
+                .mapToObj(i -> label.apply(cities.get(i), temperatures.get(i)))
+                .toList();
+        System.out.println(viaStream);
+    }
+}
+```
+
+Expected output:
+
+```text
+[Paris: 18, Oslo: 4, Cairo: 31]
+[Paris: 18, Oslo: 4, Cairo: 31]
+```
+
+`.toList()` and `.collect(Collectors.toList())` both give a list of the
+same elements. The first one is unmodifiable.
+
+**Pitfalls:**
+
+- `rangeClosed(0, size)` includes `size` itself and throws
+  `IndexOutOfBoundsException` on the last index. Use `range` with `size()`.
+- If the lists can differ in length, stream up to the shorter one with
+  `Math.min(a.size(), b.size())`, or check the sizes first.
+- `IntStream.map` would need an `int` result. Producing a `String` needs
+  `mapToObj`.
+- `get(i)` is O(1) on `ArrayList` and `List.of`, but O(n) on a `LinkedList`,
+  which makes the whole pairing O(n²).
+
+**Interview angle:** "Streams have no `zip`. How would you combine two lists
+element by element?" Stream the indices with `IntStream.range` and look up
+both lists inside `mapToObj`.
+
 ## String chars and character output
 
 `String.chars()` returns the numeric values of its Java `char` units as ints.
@@ -296,6 +377,9 @@ Attempt TODOs 1–6 after the refresher above:
 
 [CreatingStreams.java](../../../src/main/java/com/amigoscode/_7_streams/_1_basics/CreatingStreams.java)
 is the earlier exercise that introduced these primitive sources.
+
+[BiFunctionExercise.java](../../../src/main/java/com/amigoscode/_6_functionalinterfaces/_2_functionalinterfaces/BiFunctionExercise.java)
+TODO 5 uses the [index-range pairing](#index-ranges-combine-two-lists-position-by-position) above.
 
 Explain `range` versus `rangeClosed`, each conversion in the example, and
 why `chars()` initially supplies numbers. Predict the type after each call

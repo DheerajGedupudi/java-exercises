@@ -36,7 +36,8 @@ At their last review, these still had small open items. One quick round
 rechecks the current code first, since some may already be fixed.
 
 - [ ] FunctionalInterfaceBasics TODO 6: greeting text didn't match.
-- [ ] LambdaExpressions: capitalization in the Callable result.
+- [x] LambdaExpressions: capitalization in the Callable result. Fixed;
+  verified on 2026-11-12.
 - [ ] FunctionExercise TODO 5: use the requested name `intToWord`.
 - [ ] BiFunctionExercise: TODO 4 partial, TODO 5 not started.
 - [ ] ForEachAndCollect TODO 6: print the class name.
@@ -46,7 +47,7 @@ rechecks the current code first, since some may already be fixed.
 | Done | Exercise | Chapter | Review |
 |---|---|---|---|
 | ☐ | [FunctionalInterfaceBasics] | [Functional interfaces](explanations/foundations/functional-interfaces.md) | [Review](exercise-reviews/functional-interfaces/functional-interface-basics.md) |
-| ☐ | [LambdaExpressions] | [Lambdas](explanations/foundations/lambdas.md) | [Review](exercise-reviews/functional-interfaces/lambda-expressions.md) |
+| ☑ | [LambdaExpressions] | [Lambdas](explanations/foundations/lambdas.md) | [Review](exercise-reviews/functional-interfaces/lambda-expressions.md) |
 | ☑ | [MethodReferences] | [Method references](explanations/foundations/method-references.md) | [Review](exercise-reviews/functional-interfaces/method-references.md) |
 | ☑ | [SupplierExercise] | [Supplier](explanations/functional-interfaces/supplier.md) | [Review](exercise-reviews/functional-interfaces/supplier.md) |
 | ☑ | [ConsumerExercise] | [Consumer](explanations/functional-interfaces/consumer.md) | [Review](exercise-reviews/functional-interfaces/consumer.md) |

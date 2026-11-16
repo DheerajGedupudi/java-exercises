@@ -74,7 +74,8 @@ quoted name, method name, and exact string against your code.
 | [FilterBasics](../exercise-reviews/streams/filter-basics.md) | 6 | 2026-10-26 | `Collectors.toList()` | `Stream.toList()` |
 | [ReduceBasics](../exercise-reviews/streams/reduce-basics.md) | 3 | 2026-10-27 | `reduce` without an identity | `reduce` with an identity |
 
-Three of these are still open. They are the
+LambdaExpressions TODO 3 was fixed by 2026-11-12. FunctionalInterfaceBasics
+TODO 6 and Function TODO 5 are still open as
 [loose ends](../learning-plan.md#loose-ends) in the roadmap.
 
 ## 3. Range endpoint off by one

@@ -46,3 +46,30 @@ Read [lambdas](../../explanations/foundations/lambdas.md),
 [BiFunction](../../explanations/functional-interfaces/bifunction.md), and
 [method references](../../explanations/foundations/method-references.md).
 
+## Review: 2026-11-12 — loose-ends recheck
+
+**What was run:** the committed source, using the source-file launcher. It
+hadn't changed since the last commit.
+
+| TODO | Verdict | Evidence |
+|---|---|---|
+| 3 | Correct | Verified: prints `Result from Callable` with the requested capitalization |
+
+All eight output lines matched:
+
+```text
+Sorted by length: [Al, Bob, Charlie, Alexandra]
+Running in a lambda!
+Result from Callable
+Verbose sum: 7
+Concatenated String: Hello + World
+Hello!
+Goodbye!
+JOHN
+```
+
+All seven TODOs now meet their requirements. The capitalization miss is
+listed under [mistake pattern 2](../../revision/mistake-patterns.md#2-requested-name-text-or-api-not-followed-exactly).
+The explain-it-back question for the loose-ends round is asked once the
+other four loose ends are closed.
+
